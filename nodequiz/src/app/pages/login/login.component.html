@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card class="form">
+    <mat-card-content>
+      <h2>Please sign in</h2>
+      <small *ngIf="errorMessage">{{ errorMessage }}</small>
+      <form [formGroup]="form" #loginForm="ngForm" (ngSubmit)="onSubmit(form.value); form.reset()">
+        <small
+          *ngIf="form.controls['userId'].hasError('required') && form.controls['userId'].touched">
+          User Id is required
+        </small>
+        <small *ngIf="form.controls['userId'].hasError('pattern') && form.controls['userId'].touched">
+          Invalid User Id
+        </small>
+        <mat-form-field class="inputStyle">
+          <input type="text" matInput [formControl]="form.controls['userId']" placeholder="User Id" />
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button
+            mat-raised-button color="primary"
+            [disabled]="!form.valid"
+            color="accent"
+            type="submit"
+          >
+            Log in
+          </button>
+        </mat-card-actions>
+      </form>
+      <br /><br />
+    </mat-card-content>
+  </mat-card>
+</div>

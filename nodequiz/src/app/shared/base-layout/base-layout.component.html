@@ -1,0 +1,39 @@
+<div>
+  <!-- Page header -->
+  <header>
+    <!-- Toolbar -->
+    <mat-toolbar class="menu" role="header" color="primary">
+      <mat-toolbar-row>
+        <button mat-button class="toolbar__icon-button mat-button">
+          <mat-icon>menu</mat-icon>
+          <span style="margin-left: 5px !important" [routerLink]="['/']">NodeQuiz</span>
+        </button>
+
+        <div fxFlex></div>
+
+        <button mat-icon-button class="toolbar__icon-button" [matMenuTriggerFor]="menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>perm_contact_calendar</mat-icon>
+            <span>My Profile</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item (click)="userLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+
+  <!-- Main page content -->
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+<!-- </div> -->
