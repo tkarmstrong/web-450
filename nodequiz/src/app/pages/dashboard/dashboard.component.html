@@ -1,1 +1,24 @@
-<p>Dashboard will go here.</p>
+<div class="container">
+
+  <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="center center">
+
+    <ng-container *ngFor="let card of cards">
+      <p-card header="{{ card.cardHeader }}" subheader="{{ card.cardSubheader }}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+        <p-header>
+          <img src="{{ card.cardImage }}">
+        </p-header>
+          <div>{{ card.cardContent }}
+        </div>
+        <p-footer>
+          <button
+            (click)="startPresentation($event, card)"
+            class="btn-primary"
+            pButton type="button"
+            label="{{ card.btnText }}"
+          ></button>
+        </p-footer>
+      </p-card>
+
+    </ng-container>
+  </div>
+</div>

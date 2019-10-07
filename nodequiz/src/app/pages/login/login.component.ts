@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
     const userId = this.form.controls['userId'].value;
 
     this.http.get(apiBaseURL + userId).subscribe(res => {
-      console.log(res);
       if (res) {
         this.cookie.set('isAuthenticated', 'true', 1);
         this.router.navigate(['/dashboard']);

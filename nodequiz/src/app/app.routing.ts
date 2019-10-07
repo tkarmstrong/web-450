@@ -14,6 +14,8 @@ import { AuthGuardService } from './shared/guards/auth-guard/auth-guard.service'
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { PresentationComponent } from './pages/presentation/presentation.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 export const AppRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -32,6 +34,16 @@ export const AppRoutes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'not-found', component: NotFoundComponent }
     ]
+  },
+  {
+    path: 'presentations/:id',
+    component: AuthLayoutComponent,
+    children: [{ path: '', component: PresentationComponent }]
+  },
+  {
+    path: 'quizzes/:id',
+    component: AuthLayoutComponent,
+    children: [{ path: '', component: QuizComponent }]
   },
   { path: '**', redirectTo: 'session/not-found' }
 ];

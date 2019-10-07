@@ -1,0 +1,24 @@
+.container {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+.ui-carousel-page-links {
+  display: none;
+}
+
+button {
+  width: 80%;
+}
+
+.mat-card-actions, .mat-card-content, .mat-card-subtitle {
+  margin-bottom: 0px;
+}
+
+body .ui-carousel .ui-carousel-viewport .ui-carousel-items .ui-carousel-item {
+  border: 0 !important;
+}
+
+body .ui-carousel .ui-carousel-viewport {
+  border: 0;
+}

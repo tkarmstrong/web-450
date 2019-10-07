@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import 'custom-theme';
 
 body {
@@ -6,10 +7,33 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.primary-text-color {
-  color: #009688;
+.warn {
+  color: mat-color($custom-theme-warn) !important;
+}
+
+.accent-color {
+  color: mat-color($custom-theme-accent) !important;
+}
+
+.primary-color {
+  color: mat-color($custom-theme-primary) !important;
 }
 
 .full-width {
   width: 100%;
 }
+
+// ngButtons to match Angular Material color theme
+body .ui-button {
+  background-color: #009688;
+  border-color: #009688;
+  width: 100%;
+}
+
+body .ui-button:enabled:hover {
+  background-color: #FFE57F;
+  color: #333333;
+  border-color: #FFE57F;
+}
+
+

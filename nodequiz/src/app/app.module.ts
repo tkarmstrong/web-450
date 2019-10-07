@@ -23,6 +23,7 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PresentationComponent } from './pages/presentation/presentation.component';
 
 // Material
 import { MatCardModule } from '@angular/material/card';
@@ -34,9 +35,17 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
 
 // Flex
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+// PrimeNg
+import { GalleriaModule } from 'primeng/galleria';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import {CarouselModule} from 'primeng/carousel';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +55,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DashboardComponent,
     LoginComponent,
     NotFoundComponent,
+    PresentationComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +74,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    GalleriaModule,
+    CardModule,
+    ButtonModule,
+    CarouselModule,
+    MatRadioModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
