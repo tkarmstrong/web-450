@@ -1,9 +1,9 @@
 /*
 =====================================
-  ; Title: Dashboard Component
+  ; Title: Presentation Component
   ; Author: Tyler Armstrong
   ; Date: 2 Oct 2019
-  ; Description: Component for /dashboard.
+  ; Description: Component for presentations.
 ======================================
 */
 
