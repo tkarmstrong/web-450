@@ -17,6 +17,7 @@ const User = require('./db-models/user');
 const Presentation = require('./db-models/presentation');
 const Card = require('./db-models/card');
 const Quiz = require('./db-models/quiz');
+const Summary = require('./db-models/summary');
 const router = express.Router();
 
 let app = express();
@@ -218,6 +219,40 @@ app.get('/api/quizzes/:id', function(req, res, next) {
       return next(err);
     }  else {
       res.json(quiz);
+    }
+  })
+});
+
+/**
+ * Add new summary
+ */
+app.post('/api/summary', function(req, res, next) {
+
+  const summary = new Summary();
+
+    summary.userId = req.body.userId,
+    summary.title = req.body.title,
+    summary.dateTaken = req.body.dateTaken,
+    summary.results = req.body.results,
+    summary.score = req.body.score
+
+    summary.save(function(err) {
+      if (err)
+        res.send(err);
+      res.json({ summary });
+    });
+
+});
+
+/**
+ * Get summary
+ */
+app.get('/api/summary', function(req, res, next) {
+  Summary.find({}, function(err, summary) {
+    if (err) {
+      return next(err);
+    }  else {
+      res.json(summary);
     }
   })
 });

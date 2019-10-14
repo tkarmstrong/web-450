@@ -20,9 +20,9 @@ let quizSchema = new Schema({
         choices:
           [
             { a: String, flag: Boolean },
-            { b: String, flag: Boolean },
-            { c: String, flag: Boolean },
-            { d: String, flag: Boolean }
+            { a: String, flag: Boolean },
+            { a: String, flag: Boolean },
+            { a: String, flag: Boolean }
           ]
       }
     ]

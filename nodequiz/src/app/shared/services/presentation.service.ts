@@ -15,11 +15,11 @@ import { ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class PresentationService {
-  routeId;
+  private routeId;
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
     ) {}
 
   get() {
@@ -30,4 +30,5 @@ export class PresentationService {
     const apiURL = `http://localhost:3000/api/presentations/${this.routeId}`;
     return this.http.get(apiURL);
   }
+
 }

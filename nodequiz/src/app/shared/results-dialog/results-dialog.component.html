@@ -1,0 +1,18 @@
+<h1 fxLayoutAlign="start center" mat-dialog-title cdkFocusInitial>{{data.title}}</h1>
+<mat-dialog-content>
+  <h3>{{data.dateTaken}}</h3>
+  <h3 [ngClass]="{'incorrect': data.score <= 69, 'correct': data.score >= 70 }">
+    Your score: {{data.score}}
+  </h3>
+<mat-divider></mat-divider>
+  <div *ngFor="let item of data.results; let i=index">
+    <p>{{i + 1}}. {{item.question}}</p>
+    <p [ngClass]="{'incorrect': item.flag==false, 'correct': item.flag==true}">
+      {{item.answer}}: {{item.flag}}
+    </p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button color="primary" mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

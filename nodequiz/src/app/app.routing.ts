@@ -16,19 +16,20 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { PresentationComponent } from './pages/presentation/presentation.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { CumulativeSummaryComponent } from './pages/cumulative-summary/cumulative-summary.component';
 
 export const AppRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {
     path: 'dashboard',
-    component: BaseLayoutComponent,
+    component: AuthLayoutComponent,
     children: [
       { path: '', component: DashboardComponent, canActivate: [AuthGuardService] }
     ]
   },
   {
     path: 'session',
-    component: AuthLayoutComponent,
+    component: BaseLayoutComponent,
     children: [
       { path: '', component: LoginComponent },
       { path: 'login', component: LoginComponent },
@@ -44,6 +45,11 @@ export const AppRoutes: Routes = [
     path: 'quizzes/:id',
     component: AuthLayoutComponent,
     children: [{ path: '', component: QuizComponent }]
+  },
+  {
+    path: 'summary',
+    component: AuthLayoutComponent,
+    children: [{path: '', component: CumulativeSummaryComponent}]
   },
   { path: '**', redirectTo: 'session/not-found' }
 ];

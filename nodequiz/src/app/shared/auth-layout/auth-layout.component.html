@@ -4,10 +4,15 @@
     <!-- Toolbar -->
     <mat-toolbar class="menu" role="header" color="primary">
       <mat-toolbar-row>
-        <button mat-button class="toolbar__icon-button mat-button">
-          <mat-icon>menu</mat-icon>
-          <span style="margin-left: 5px !important" [routerLink]="['/']">NodeQuiz</span>
+          <button mat-button class="toolbar__icon-button mat-button">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <button mat-button class="toolbar__icon-button mat-button" [routerLink]="['/']">
+          <span style="margin-left: 5px !important" >NodeQuiz</span>
         </button>
+        <button mat-button class="toolbar__icon-button mat-button" [routerLink]="['/summary']">
+            <span style="margin-left: 5px !important">Summary</span>
+          </button>
 
         <div fxFlex></div>
 

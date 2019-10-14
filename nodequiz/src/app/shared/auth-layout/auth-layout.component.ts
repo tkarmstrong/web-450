@@ -24,7 +24,7 @@ export class AuthLayoutComponent implements OnInit {
   }
 
   userLogout() {
-    this.cookie.delete('isAuthenticated');
+    this.cookie.deleteAll();
     this.router.navigate(['/session/login']);
   }
 

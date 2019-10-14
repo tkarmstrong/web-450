@@ -9,6 +9,8 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+// Other
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
@@ -24,6 +26,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PresentationComponent } from './pages/presentation/presentation.component';
+import { CumulativeSummaryComponent } from './pages/cumulative-summary/cumulative-summary.component';
 
 // Material
 import { MatCardModule } from '@angular/material/card';
@@ -36,6 +39,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 
 // Flex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -46,6 +51,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import {CarouselModule} from 'primeng/carousel';
 import { QuizComponent } from './quiz/quiz.component';
+import { ResultsDialogComponent } from './shared/results-dialog/results-dialog.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,9 @@ import { QuizComponent } from './quiz/quiz.component';
     LoginComponent,
     NotFoundComponent,
     PresentationComponent,
-    QuizComponent
+    QuizComponent,
+    ResultsDialogComponent,
+    CumulativeSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -79,9 +87,13 @@ import { QuizComponent } from './quiz/quiz.component';
     CardModule,
     ButtonModule,
     CarouselModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule,
+    MatTableModule
   ],
-  providers: [CookieService],
-  bootstrap: [AppComponent]
+  providers: [
+    CookieService],
+  bootstrap: [AppComponent],
+  entryComponents: [ResultsDialogComponent]
 })
 export class AppModule { }

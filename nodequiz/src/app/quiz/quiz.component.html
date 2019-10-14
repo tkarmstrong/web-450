@@ -1,19 +1,34 @@
-<h1 class="primary-text-color">{{quiz.title}}</h1>
+<div class="container" *ngIf="quiz">
 
-<div fxLayout="row"></div>
+    <form #quizForm="ngForm" (ngSubmit)="onSubmit(quizForm.value)" validators>
 
-<div fxLayout="column"></div>
-<mat-card style="width: 80%;" *ngFor="let question of quiz.questions; let i=index">
-  <mat-card-header>
-    <mat-card-title>{{i + 1}}. {{ question.challenge }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-      <mat-radio-group fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
-      <mat-radio-button [value]="choice.flag" style="margin-left: 50px;" *ngFor="let choice of question.choices">
-        {{choice.a}}
-      </mat-radio-button>
-    </mat-radio-group>
-  </mat-card-content>
-  <button color="primary" [routerLink]="['/presentations/', quiz.id]" mat-button>Return To Presentation</button>
-</mat-card>
+  <div fxLayout="column" fxLayoutAlign="center center">
 
+    <h1 class="primary-text-color">{{quiz.title}}</h1>
+
+      <mat-card style="width: 80%;" *ngFor="let question of quiz.questions; let i=index">
+        <mat-card-header>
+          <mat-card-title>{{i + 1}}. {{ question.challenge }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-radio-group
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            fxLayoutGap="10px"
+            name="question{{i}}"
+            ngModel
+          >
+            <mat-radio-button [value]="{'question': question.challenge, 'answer': choice.a, 'flag': choice.flag}" style="margin-left: 50px;" *ngFor="let choice of question.choices">
+              {{choice.a}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content>
+        <button class="back-to-prez-btn" color="primary" [routerLink]="['/presentations/', quiz.id]" mat-button>Return
+          To Presentation</button>
+      </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button type="submit" fxFlex=80% class="submit-quiz-btn" mat-raised-button color="primary">Submit Quiz</button>
+  </div>
+</form>
+</div>

@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
     this.http.get(apiBaseURL + userId).subscribe(res => {
       if (res) {
         this.cookie.set('isAuthenticated', 'true', 1);
+        this.cookie.set(userId, 'true', 1);
         this.router.navigate(['/dashboard']);
       } else {
         this.errorMessage = 'Invalid User ID';
